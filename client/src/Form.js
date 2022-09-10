@@ -8,6 +8,7 @@ class Form extends Component{
       fName: "", 
       lName: "",
       email: "",
+      apiResponse: "",
     }
   }
 
@@ -22,6 +23,18 @@ class Form extends Component{
     console.log(`name submitted: ${this.state.fName} ${this.state.lName} ${this.state.email}`)
     this.setState({[event.target.name]: ""})
     }
+
+  callAPI(){
+    fetch("http://localhost:9000")
+      .then(res => res.text())
+      .then(data => this.setState({apiResponse: data}))
+      .catch(error => console.log(error))
+  }
+
+  componentDidMount(){
+    this.callAPI()
+  }
+  
 
   render(){
     return(
@@ -54,6 +67,7 @@ class Form extends Component{
           name="email" />
         </label>
         <input type="submit" value="Submit" />
+        <p>{this.state.apiResponse}</p>
       </form>
     )
   }
