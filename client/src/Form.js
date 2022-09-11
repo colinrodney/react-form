@@ -21,6 +21,7 @@ class Form extends Component{
   submitForm = (event) =>{
     event.preventDefault()
     console.log(`name submitted: ${this.state.fName} ${this.state.lName} ${this.state.email}`)
+    // setting state like this keeps us from having multiple handlers for each input field
     this.setState({[event.target.name]: ""})
     }
 
@@ -31,11 +32,11 @@ class Form extends Component{
       .catch(error => console.log(error))
   }
 
+  // lifecyle component- runs AFTER component output has been rendered to the DOM
   componentDidMount(){
     this.callAPI()
   }
   
-
   render(){
     return(
       <form onSubmit={this.submitForm}>
