@@ -32,14 +32,26 @@ class Form extends Component{
       .catch(error => console.log(error))
   }
 
+  // callRegister(){
+  //   fetch("https://localhost:9000/register")
+  //     .then(res => res.text())
+  //     .then(postData => this.setState({apiResponse: postData}))
+  //     .catch(error => console.log(error))
+
+  // }
+
   // lifecyle component- runs AFTER component output has been rendered to the DOM
   componentDidMount(){
     this.callAPI()
+    // this.callRegister()
   }
   
   render(){
     return(
-      <form onSubmit={this.submitForm}>
+      <form
+      // onSubmit={this.submitForm}{
+      action="http://localhost:9000/register"
+      method="post">
         <label>
           first name:
           <input 
