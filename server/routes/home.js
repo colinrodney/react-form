@@ -11,5 +11,8 @@ router.get("/test", (req, res) =>{
     res.send("test route")
 })
 
+router.post("/register", cors({origin: "*"}), (req, res) =>{
+    res.send(`thanks for registering`)
+})
 
 module.exports = router
