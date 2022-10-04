@@ -1,7 +1,6 @@
 const express = require("express")
 const app = express()
-let index = require("./routes/home")
-let getRoute = require("./routes/getRoutes")
+let indexRoute= require("./routes/getRoutes")
 let postRoute = require("./routes/postRoutes")
 
 const mongoose = require("mongoose")
@@ -14,7 +13,7 @@ testUser.save().then(() => console.log(testUser.name))
 const port = 9000
 
 
-app.use("/", index)
+app.use("/", indexRoute)
 app.use("/post", postRoute)
 
 app.listen(port, () =>{
