@@ -5,4 +5,4 @@ router.post("/post", (req, res) =>{
     res.send(`post route`)
 })
 
-module.export = router
+module.exports = router
