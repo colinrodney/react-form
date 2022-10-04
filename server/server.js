@@ -6,7 +6,7 @@ let postRoutes = require("./routes/postRoutes")
 const port = 9000
 
 app.use("/", getRoutes)
-// app.use("/register", register)
+app.use("/post", postRoutes)
 
 app.listen(port, () =>{
     console.log(`app listening on port ${port}`)
