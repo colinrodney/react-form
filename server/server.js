@@ -1,18 +1,12 @@
 const express = require("express")
 const app = express()
-let testRoute = require("./routes/testRoutes")
+let getRoutes = require("./routes/getRoutes")
+let postRoutes = require("./routes/postRoutes")
+// let register = require("./routes/register")
 const port = 9000
 
-
-app.use("/test", testRoute)
-// app.use("/", testRoute)
-// app.get("/", (req, res) =>{
-//     res.send("welcome to express!")
-// })
-
-// app.post("/", (req, res) =>{
-//     res.send(`registration successful`)
-// })
+app.use("/", getRoutes)
+// app.use("/register", register)
 
 app.listen(port, () =>{
     console.log(`app listening on port ${port}`)
