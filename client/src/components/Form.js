@@ -1,5 +1,5 @@
 import React, {Component, useState} from "react"
-import './Form.css';
+// import './Form.css';
 
 class Form extends Component{
   constructor(props){
@@ -19,6 +19,19 @@ class Form extends Component{
   submitForm = (event) =>{
     event.preventDefault()
     console.log(`credentials: ${this.state.username}, ${this.state.password}`)
+
+    fetch("http://localhost:9000",{
+      method: "POST",
+
+      headers:{
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify(this.state)
+
+    })
+    .then(res => res.json())
+    .then(res => console.log(`something happened...`))
+
     this.setState({[event.target.name]: ""})
     }
 
