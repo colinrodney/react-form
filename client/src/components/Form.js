@@ -5,9 +5,8 @@ class Form extends Component{
   constructor(props){
     super(props)
     this.state = {
-      fName: "", 
-      lName: "",
-      email: "",
+      username: "", 
+      password: "",
     }
   }
 
@@ -19,7 +18,7 @@ class Form extends Component{
 
   submitForm = (event) =>{
     event.preventDefault()
-    console.log(`name submitted: ${this.state.fName} ${this.state.lName} ${this.state.email}`)
+    console.log(`credentials: ${this.state.username}, ${this.state.password}`)
     this.setState({[event.target.name]: ""})
     }
 
@@ -27,37 +26,28 @@ class Form extends Component{
     return(
       <form onSubmit={this.submitForm}>
         <label>
-          first name:
+          username:
           <input 
           type="text"
           value={this.value} 
           onChange={this.onChange} 
-          placeholder="enter value"
-          name="fName" />
+          placeholder="username"
+          name="username" />
         </label>
 
         <label>
-          last name:
-          <input type="text"
+          password:
+          <input type="password"
           value={this.value}
           onChange={this.onChange}
           placeholder="enter value"
-          name="lName" />
+          name="password" />
         </label>
 
-        <label>
-          email:
-          <input type="email"
-          value={this.value}
-          onChange={this.onChange}
-          placeholder="enter value"
-          name="email" />
-        </label>
         <input type="submit" value="Submit" />
       </form>
     )
   }
 }
-
 
 export default Form;
