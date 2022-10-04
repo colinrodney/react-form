@@ -21,7 +21,7 @@ class Form extends Component{
     console.log(`credentials: ${this.state.username}, ${this.state.password}`)
 
     fetch("http://localhost:9000",{
-      method: "POST",
+      method: "GET",
 
       headers:{
         "Content-type": "application/json; charset=UTF-8"
@@ -30,7 +30,7 @@ class Form extends Component{
 
     })
     .then(res => res.json())
-    .then(res => console.log(`something happened...`))
+    .then(info => console.log(`something happened...`))
 
     this.setState({[event.target.name]: ""})
     }
